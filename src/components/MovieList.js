@@ -1,6 +1,6 @@
 import React from 'react';
 
-const stockPoster = '/src/stock-movie-poster.jpg';
+const stockPoster = 'src/images/stock-movie-poster.jpg';
 
 const MovieList = (props) => {
     
