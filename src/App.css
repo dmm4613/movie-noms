@@ -10,6 +10,10 @@ body {
   flex-wrap: wrap;
 }
 
+.max-reached {
+  filter: blur(4px);
+}
+
 .movie-list {
   overflow-x: auto;
 }
@@ -25,6 +29,11 @@ body {
 }
 
 .movie-nom-btn {
+  width: 10rem;
+  margin: 0 auto;
+}
+
+.movie-denom-btn {
   width: 10rem;
   margin: 0 auto;
 }
