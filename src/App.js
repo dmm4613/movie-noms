@@ -24,10 +24,12 @@ const App = () => {
         getMovieRequest(searchValue);
     }, [searchValue]);
 
+    console.log(movies);
+
     return (
         <div className="container-fluid movie-app">
-            <div className='row d-flex align-items-center mt-4 mb-4'>
-                <MovieListHeading heading="Movies" />
+            <div className='movie-list-heading row d-flex align-items-center mt-4 mb-4'>
+                <MovieListHeading heading="Top 5 Movie Nominations" />
                 <SearchBox searchValue={searchValue} setSearchValue={setSearchValue} />
             </div>
             <div className='row'>
