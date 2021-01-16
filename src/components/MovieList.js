@@ -1,10 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 const genericPoster = 'https://s.studiobinder.com/wp-content/uploads/2017/12/Movie-Poster-Template-Dark-with-Image.jpg?x81279';
 
 const MovieList = (props) => {
+    
+    let movieNomsArray = localStorage.getItem('savedMovieNoms') ? JSON.parse(localStorage.getItem('savedMovieNoms')) : [];
 
-    const [movieNoms, setMovieNoms] = useState([]);
+    const [movieNoms, setMovieNoms] = useState(movieNomsArray || []);
+
     
     function handleAdd(event) {
         let movie = JSON.parse(event.target.value);
@@ -33,6 +36,8 @@ const MovieList = (props) => {
         // document.getElementById(`${event.target.value}-btn`).removeAttribute("disabled");
         setMovieNoms(nomList);
     }
+
+    useEffect(() => localStorage.setItem('savedMovieNoms', JSON.stringify(movieNoms)), [movieNoms]);
 
     return (
         <>
