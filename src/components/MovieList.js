@@ -15,15 +15,12 @@ const MovieList = (props) => {
         if (!movieNoms.some(e => e.imdbID === movie.imdbID)){
             if (movieNoms.length < 5){
                 setMovieNoms(movieNoms => [...movieNoms, movie]);
-            }
-            
+            }            
         }
     }
 
-    function handleRemove(event) {
-       
+    function handleRemove(event) {       
         const nomList = movieNoms.filter((item) => item.imdbID !== event.target.value);
-        // document.getElementById(`${event.target.value}-btn`).removeAttribute("disabled");
         setMovieNoms(nomList);
     }
 
@@ -54,7 +51,7 @@ const MovieList = (props) => {
                     <div key={movie.imdbID} className="d-flex flex-column justify-content-start movie-card">
                         <img className="movie-poster" src={movie.Poster === 'N/A' ? genericPoster : movie.Poster} alt={`${movie.Title} movie poster`}></img>
                         <h3 className="h4 text-center">{`${movie.Title} (${movie.Year})`}</h3>
-                        <button id={`${movie.imdbID}-btn`} type="button" className="btn btn-success movie-nom-btn" onClick={handleAdd} value={JSON.stringify(movie)}
+                        <button id={`${movie.imdbID}-btn`} type="button" className={`btn ${!movieNoms.some(e => e.imdbID === movie.imdbID) ? 'btn-success' : 'btn-secondary'} movie-nom-btn`} onClick={handleAdd} value={JSON.stringify(movie)}
                         disabled={(movieNoms.some(e => e.imdbID === movie.imdbID))}>
                             {(movieNoms.some(e => e.imdbID === movie.imdbID)) ? 'Nominated' : 'Nominate'}
                         </button>        

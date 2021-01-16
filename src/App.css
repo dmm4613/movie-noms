@@ -40,17 +40,21 @@ body {
 }
 
 .movie-poster {
-  max-width: 10rem;
-  height: 15rem;
+  max-width: 8rem;
+  height: 10rem;
   margin: .5rem auto;
 }
 
-.movie-nom-btn {
-  width: 10rem;
+.movie-nom-btn, .movie-denom-btn {
+  width: 8rem;
   margin: 0 auto;
+  text-transform: uppercase;
+}
+
+.movie-nom-btn{
+
 }
 
 .movie-denom-btn {
-  width: 10rem;
-  margin: 0 auto;
+  
 }
