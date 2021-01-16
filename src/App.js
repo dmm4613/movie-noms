@@ -24,16 +24,25 @@ const App = () => {
         getMovieRequest(searchValue);
     }, [searchValue]);
 
-    console.log(movies);
+    function displayBanner(maxReached=false){
+        let banner = document.getElementById('banner');
+        if (maxReached) {
+            banner.innerHTML = 'Max nominations reached!';
+        }
+        else {
+            banner.innerHTML = '';
+        }
+    }
 
     return (
         <div className="container-fluid movie-app">
             <div className='movie-list-heading row d-flex align-items-center mt-4 mb-4'>
                 <MovieListHeading heading="Top 5 Movie Nominations" />
+                <p id="banner" className='col banner'></p>
                 <SearchBox searchValue={searchValue} setSearchValue={setSearchValue} />
             </div>
             <div className='row'>
-                <MovieList movies={movies} />
+                <MovieList movies={movies} displayBanner={displayBanner}/>
             </div>
         </div>
     );
