@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
 const genericPoster = 'https://s.studiobinder.com/wp-content/uploads/2017/12/Movie-Poster-Template-Dark-with-Image.jpg?x81279';
+let windowWidth = document.body.clientWidth;
 
 const MovieList = (props) => {
     
@@ -45,7 +46,7 @@ const MovieList = (props) => {
             <h2 className='movie-list-title'>
                 {props.movies.length === 0 ? "Search for your favorite movies": "Search Results"}
             </h2>              
-            <div className="card-container d-flex w-100">
+            <div className={`card-container d-flex w-100 ${windowWidth<787 && props.movies.length!==0 ? 'card-container-sml' : ''}`}>
                 {props.movies.map((movie) => 
                 <div className="d-flex justify-content-start m-4">
                     <div key={movie.imdbID} className="d-flex flex-column justify-content-start movie-card">

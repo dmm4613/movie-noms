@@ -22,7 +22,7 @@ body {
 }
   
 .movie-list {
-  overflow-x: auto;
+  overflow-x: hidden;
 }
 
 .movie-list-title {
@@ -33,10 +33,18 @@ body {
 
 .card-container {
   overflow-x: auto;
+  overflow-y: hidden;
+}
+
+.card-container-sml {
+  height: 40vh;
+}
+.card-container-div-sml {
+  height: 27vh;
 }
 
 .movie-card {
-  width: 20rem;
+  width: 15rem;
 }
 
 .movie-poster {
@@ -51,10 +59,41 @@ body {
   text-transform: uppercase;
 }
 
-.movie-nom-btn{
 
-}
 
-.movie-denom-btn {
+@media screen and (max-width: 787px) {
+  .movie-list-heading {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
   
+  .movie-list-heading.mb-4 {
+    margin-bottom: 1rem !important;
+  }
+
+  .search-box {
+    margin-bottom: .5rem;
+  }
+
+  .h1, h1 {
+    font-size: 2rem;
+  }
+
+  .h2, h2 {
+    font-size: 1.5rem;
+  }
+
+  .movie-list-title {
+    margin: .5rem auto;
+  }
+
+  .h4, h3 {
+    font-size: 1rem;
+  }
+  
+  .movie-card {
+    width: 10rem;
+  }
 }
