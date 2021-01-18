@@ -21,7 +21,9 @@ const App = () => {
     };
 
     useEffect(()=> {
-        getMovieRequest(searchValue);
+        const timeoutId = setTimeout(() => getMovieRequest(searchValue), 500);
+        return () => clearTimeout(timeoutId);
+        
     }, [searchValue]);
 
     function displayBanner(maxReached=false){
